@@ -26,7 +26,7 @@ import {
   Percent
 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://jobtrack-backend-af0w.onrender.com/api';
 
 const CURRENCIES = [
   { symbol: '₹', code: 'INR', label: '₹ INR' },
