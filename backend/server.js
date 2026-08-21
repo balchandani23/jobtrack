@@ -8,9 +8,21 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-// Middleware
-app.use(cors());
+// Robust CORS configuration
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
+
 app.use(express.json());
+
+// Root healthcheck route
+app.get('/', (req, res) => {
+  res.send('JobTrack API is running live.');
+});
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
